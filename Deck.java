@@ -21,7 +21,10 @@ public class Deck implements Runnable{
 		oppo = new int[2][2];
 		pubCard = new int[5][2];
 		backUp = new int[10][2];
-		this.stat = stat;
+		if(stat.length != 13)
+			stat = new int[13];
+		else
+			this.stat = stat;
 		this.loop = loop;
  	}
 	
@@ -167,6 +170,7 @@ public class Deck implements Runnable{
 				System.out.println(".\n" + (  (res == 0)?"I win.":((res == 2)?"I lose.":"Split.")));
 			}
 			setStat(res);
+			setStat(myDmnc);
 			//0:win, 1: split, 2: lose.
 		}
 		count--;
@@ -241,8 +245,13 @@ public class Deck implements Runnable{
 	
 	synchronized void setStat(int res){
 		stat[res] ++;
+		stat[3]++;
 	}
-	
+
+	synchronized void setStat(int[] dominance){
+		stat[dominance[0]+4]++;	
+	}
+
 	public int[] getStat(){
 		return stat;
 	}

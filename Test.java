@@ -3,7 +3,7 @@
  */
 public class Test {
     public static void main(String[] args){
-    	int[] stat = new int[3];
+    	int[] stat = new int[13];
     	int threadN = 10;
     	Thread threads[] = new Thread[threadN];
     	
@@ -14,10 +14,10 @@ public class Test {
     		int[] my2 = {1,6};
     		int[] oppo1 = {2,14};
     		int[] oppo2 = {3,14};
-            d.dealMy1(my1);
-            d.dealMy2(my2);
-            d.dealOppo1(oppo1);
-            d.dealOppo2(oppo2);
+            d.dealMy1(oppo1);
+            d.dealMy2(oppo2);
+            d.dealOppo1(my1);
+            d.dealOppo2(my2);
             threads[i] = new Thread(d);
             threads[i].start();
     	}
@@ -26,9 +26,10 @@ public class Test {
 		}
 		while(Deck.count != 0){
 		}
-		
-		System.out.println(stat[0] + "  " + stat[1] + "  " + stat[2]);
-		
+		for(int i = 0; i < 13; i ++){
+			System.out.print((int)(stat[i]*1.0/stat[3]*100)+"% ");
+		}
+
 		long end = System.currentTimeMillis();
 		System.out.println("\nTime elapsed " + (end - start) + " ms.");	
     }
