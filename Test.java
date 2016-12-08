@@ -16,11 +16,11 @@ public class Test {
     		Deck d = new Deck(1000000,stat);
     		int[] my1 = {1,10};
     		int[] my2 = {1,11};
-    		int[] oppo1 = {2,14};
-    		int[] oppo2 = {3,14};
-		int[] flop1 = {1,14};
+    		int[] oppo1 = {2,12};
+    		int[] oppo2 = {3,12};
+		int[] flop1 = {1,13};
 		int[] flop2 = {4,12};
-		int[] flop3 = {1,10};
+		int[] flop3 = {1,8};
             d.dealMy1(my1);
             d.dealMy2(my2);
             d.dealOppo1(oppo1);
